@@ -1,95 +1,53 @@
 package com.wang.blog.domain;
 
-import javax.persistence.Column;
+import com.wang.blog.enums.ArticleStatusEnum;
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
+/**
+ * @ Author     ：泽非
+ * @ Date       ：Created in 19:53 2018/5/26
+ * @ Description：
+ * @ Modified By：
+ */
 @Entity
+@Data
+@DynamicUpdate
 public class Article {
     @Id
-    @GeneratedValue
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer articleId;
 
-    private String title;
+    /*文章类型*/
+    private Integer categoryType;
 
-    private String subtitle;
+    /*标题*/
+    private String articleTitle;
 
-    private Date date;
+    /*副标题*/
+    private String articleSubtitle;
 
-    @Column(columnDefinition = "text")
-    private String context;
+    /*正文*/
+    private String articleContent;
 
+    /*文章状态*/
+    private Integer articleStatus= ArticleStatusEnum.DOWN.getCode();
+
+    /*文章小图*/
+    private String articleIcon;
+
+    /*文章描述*/
+    private String articleDescription;
+
+    /*创建时间*/
     private Date createTime;
 
+    /*更新时间*/
     private Date updateTime;
-
-    private String visible;
-
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getContext() {
-        return context;
-    }
-
-    public void setContext(String context) {
-        this.context = context;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getVisible() {
-        return visible;
-    }
-
-    public void setVisible(String visible) {
-        this.visible = visible;
-    }
 }
