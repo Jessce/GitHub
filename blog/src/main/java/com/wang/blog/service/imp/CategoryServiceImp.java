@@ -23,4 +23,9 @@ public class CategoryServiceImp implements CategoryService {
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
+
+    @Override
+    public List<Category> findByTypeIn(List<Integer> categoryType) {
+        return categoryRepository.findByCategoryTypeIn(categoryType);
+    }
 }

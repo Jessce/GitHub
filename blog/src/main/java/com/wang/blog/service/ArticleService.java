@@ -14,8 +14,12 @@ import java.util.List;
 @Service
 public interface ArticleService {
 //    查询全部文章列表
-    public List<Article> findAll();
+    List<Article> findAll();
 //    根据文章ID查询文章
-    public Article findById(Integer id);
+    Article findById(Integer id);
+
+//    查询所有发布的文章
+    List<Article> findUpAll();
+
 
 }

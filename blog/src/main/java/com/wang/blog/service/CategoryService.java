@@ -13,5 +13,7 @@ import java.util.List;
  */
 @Service
 public interface CategoryService {
-    public List<Category> findAll();
+    List<Category> findAll();
+
+    List<Category> findByTypeIn(List<Integer> categoryType);
 }

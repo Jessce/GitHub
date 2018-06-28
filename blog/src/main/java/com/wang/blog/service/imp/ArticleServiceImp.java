@@ -1,6 +1,7 @@
 package com.wang.blog.service.imp;
 
 import com.wang.blog.domain.Article;
+import com.wang.blog.enums.ArticleStatusEnum;
 import com.wang.blog.repository.ArticleRepository;
 import com.wang.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,10 @@ public class ArticleServiceImp implements ArticleService{
     @Override
     public Article findById(Integer id) {
         return articleRepository.findById(id).get();
+    }
+
+    @Override
+    public List<Article> findUpAll() {
+        return articleRepository.findByArticleStatus(ArticleStatusEnum.UP.getCode());
     }
 }

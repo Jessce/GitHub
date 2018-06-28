@@ -1,6 +1,5 @@
 package com.wang.blog.VO;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -13,15 +12,15 @@ import lombok.Data;
 public class ArticleVO {
 
 //    文章ID
-    private Integer id;
+    private Integer articleId;
 
 //    文章标题
-    private String title;
+    private String articleTitle;
 
 //    文章摘要
-    private String description;
+    private String articleDescription;
 
 //    文章小图
-    private String icon;
+    private String articleIcon;
 
 }

@@ -37,7 +37,7 @@ public class Article {
     private String articleContent;
 
     /*文章状态*/
-    private Integer articleStatus= ArticleStatusEnum.DOWN.getCode();
+    private Integer articleStatus;
 
     /*文章小图*/
     private String articleIcon;
