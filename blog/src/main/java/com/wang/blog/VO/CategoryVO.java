@@ -11,14 +11,14 @@ import java.util.List;
  * @ Modified By：
  */
 @Data
-public class CategoryVO {
+    public class CategoryVO {
 
-//    栏目名称
-    private String name;
+        //    栏目名称
+        private String name;
 
-//    栏目类型
-    private Integer type;
+        //    栏目类型
+        private Integer type;
 
-//    栏目下文章列表
-    private List<ArticleVO> articles;
+        //    栏目下文章列表
+        private List<ArticleListVO> articles;
 }

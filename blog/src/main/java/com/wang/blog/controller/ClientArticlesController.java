@@ -1,21 +1,25 @@
 package com.wang.blog.controller;
 
+import com.wang.blog.VO.ArticleListVO;
 import com.wang.blog.VO.ArticleVO;
 import com.wang.blog.VO.CategoryVO;
 import com.wang.blog.VO.ResultVO;
 import com.wang.blog.domain.Article;
 import com.wang.blog.domain.Category;
-import com.wang.blog.service.imp.ArticleServiceImp;
+import com.wang.blog.service.ArticleService;
 import com.wang.blog.service.imp.CategoryServiceImp;
 import com.wang.blog.utils.ResultVOUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @ Author     ：泽非
@@ -25,15 +29,16 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/client/articles")
+@Slf4j
 public class ClientArticlesController {
     @Autowired
-    ArticleServiceImp articleServiceImp;
+    ArticleService articleServiceImp;
 
     @Autowired
     CategoryServiceImp categoryServiceImp;
 
     @GetMapping("/list")
-    public ResultVO findAllArticles(){
+    public ResultVO findUpAllArticles(){
 //        1.查询所有发布的文章
         List<Article> articleList=articleServiceImp.findUpAll();
 
@@ -50,12 +55,12 @@ public class ClientArticlesController {
             categoryVO.setName(category.getCategoryName());
             categoryVO.setType(category.getCategoryType());
 
-            List<ArticleVO> articles=new ArrayList<>();
+            List<ArticleListVO> articles=new ArrayList<>();
             for(Article article:articleList){
                 if(article.getCategoryType().equals(category.getCategoryType())){
-                    ArticleVO articleVO=new ArticleVO();
-                    BeanUtils.copyProperties(article,articleVO);
-                    articles.add(articleVO);
+                    ArticleListVO articleListVO =new ArticleListVO();
+                    BeanUtils.copyProperties(article, articleListVO);
+                    articles.add(articleListVO);
                 }
             }
             categoryVO.setArticles(articles);
@@ -65,7 +70,21 @@ public class ClientArticlesController {
         return ResultVOUtils.success(categoryVOList);
     }
 
-//    @GetMapping("/")
+    @GetMapping("/article")
+    public ResultVO findOneArticle(@RequestParam( "ArticleId") Integer articleId){
+//        查询id对应的文章
+        Article article=new Article();
+        try {
+           article = articleServiceImp.findById(articleId);
+       }catch (NoSuchElementException e){
+            log.error("【查询文章】文章不存在,Article={}",article);
+            return ResultVOUtils.success();
+       }
 
+//        复制数据并返回
+        ArticleVO articleVO=new ArticleVO();
+        BeanUtils.copyProperties(article,articleVO);
 
+        return ResultVOUtils.success(articleVO);
+    }
 }

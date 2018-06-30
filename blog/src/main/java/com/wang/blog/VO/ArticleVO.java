@@ -1,26 +1,27 @@
 package com.wang.blog.VO;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.wang.blog.utils.serializer.DateConver;
 import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @ Author     ：泽非
- * @ Date       ：Created in 22:43 2018/6/26
+ * @ Date       ：Created in 22:07 2018/6/30
  * @ Description：
  * @ Modified By：
  */
 @Data
 public class ArticleVO {
 
-//    文章ID
     private Integer articleId;
 
-//    文章标题
     private String articleTitle;
 
-//    文章摘要
-    private String articleDescription;
+    @JsonSerialize(using= DateConver.class)
+    private Date createTime;
 
-//    文章小图
-    private String articleIcon;
+    private String articleContent;
 
 }
