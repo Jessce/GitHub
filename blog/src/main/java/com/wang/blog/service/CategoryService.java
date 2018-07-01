@@ -16,4 +16,6 @@ public interface CategoryService {
     List<Category> findAll();
 
     List<Category> findByTypeIn(List<Integer> categoryType);
+
+    Category findByType(Integer categoryType);
 }

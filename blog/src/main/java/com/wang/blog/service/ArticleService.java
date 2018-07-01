@@ -1,6 +1,8 @@
 package com.wang.blog.service;
 
 import com.wang.blog.domain.Article;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +16,7 @@ import java.util.List;
 @Service
 public interface ArticleService {
 //    查询全部文章列表
-    List<Article> findAll();
+    Page<Article> findAll(Pageable pageable);
 
 //    根据文章ID查询文章
     Article findById(Integer id);

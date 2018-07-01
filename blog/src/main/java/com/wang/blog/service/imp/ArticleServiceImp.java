@@ -5,6 +5,8 @@ import com.wang.blog.enums.ArticleStatusEnum;
 import com.wang.blog.repository.ArticleRepository;
 import com.wang.blog.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +23,8 @@ public class ArticleServiceImp implements ArticleService{
     ArticleRepository articleRepository;
 
     @Override
-    public List<Article> findAll() {
-        return articleRepository.findAll();
+    public Page<Article> findAll(Pageable pageable) {
+        return articleRepository.findAll(pageable);
     }
 
     @Override

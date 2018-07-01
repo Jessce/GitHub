@@ -20,5 +20,7 @@ public interface ArticleRepository extends JpaRepository<Article,Integer> {
     Article findByArticleTitle(String ArticleTitle);
 //    根据文章状态查询文章
     List<Article> findByArticleStatus(Integer articleStatus);
+//    查询所有文章
+    Page<Article> findAll(Pageable pageable);
 
 }

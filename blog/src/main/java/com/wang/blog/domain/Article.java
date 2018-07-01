@@ -1,6 +1,8 @@
 package com.wang.blog.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wang.blog.enums.ArticleStatusEnum;
+import com.wang.blog.utils.EnumUtils;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -50,4 +52,10 @@ public class Article {
 
     /*更新时间*/
     private Date updateTime;
+
+    @JsonIgnore
+    public ArticleStatusEnum getArticleStatusEnum(){
+        return EnumUtils.getByCode(articleStatus,ArticleStatusEnum.class);
+    }
+
 }

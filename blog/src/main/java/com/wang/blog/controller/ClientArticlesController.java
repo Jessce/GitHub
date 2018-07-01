@@ -1,7 +1,7 @@
 package com.wang.blog.controller;
 
 import com.wang.blog.VO.ArticleListVO;
-import com.wang.blog.VO.ArticleVO;
+import com.wang.blog.VO.ArticleInfoVO;
 import com.wang.blog.VO.CategoryVO;
 import com.wang.blog.VO.ResultVO;
 import com.wang.blog.domain.Article;
@@ -71,7 +71,7 @@ public class ClientArticlesController {
     }
 
     @GetMapping("/article")
-    public ResultVO findOneArticle(@RequestParam( "ArticleId") Integer articleId){
+    public ResultVO findOneArticle(@RequestParam(value = "ArticleId",defaultValue = "1") Integer articleId){
 //        查询id对应的文章
         Article article=new Article();
         try {
@@ -82,9 +82,9 @@ public class ClientArticlesController {
        }
 
 //        复制数据并返回
-        ArticleVO articleVO=new ArticleVO();
-        BeanUtils.copyProperties(article,articleVO);
+        ArticleInfoVO articleInfoVO =new ArticleInfoVO();
+        BeanUtils.copyProperties(article, articleInfoVO);
 
-        return ResultVOUtils.success(articleVO);
+        return ResultVOUtils.success(articleInfoVO);
     }
 }

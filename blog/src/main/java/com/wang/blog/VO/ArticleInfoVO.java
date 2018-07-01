@@ -13,7 +13,7 @@ import java.util.Date;
  * @ Modified By：
  */
 @Data
-public class ArticleVO {
+public class ArticleInfoVO {
 
     private Integer articleId;
 

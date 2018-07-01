@@ -20,10 +20,10 @@ public class ArticleServiceImpTest {
     @Autowired
     ArticleServiceImp articleServiceImp;
 
-    @Test
-    public void findAll() throws Exception {
-        System.out.println(articleServiceImp.findAll());
-    }
+//    @Test
+//    public void findAll() throws Exception {
+//        System.out.println(articleServiceImp.findAll());
+//    }
 
     @Test
     public void findById() throws Exception {
