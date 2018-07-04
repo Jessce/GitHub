@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * @ Author     ：泽非
@@ -25,4 +26,10 @@ public class Category {
 
     /*栏目类型*/
     private Integer categoryType;
+
+    /*创建时间*/
+    private Date createTime;
+
+    /*更新时间*/
+    private Date updateTime;
 }

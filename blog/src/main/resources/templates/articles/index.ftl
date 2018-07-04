@@ -10,22 +10,22 @@
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <form role="form">
+                    <form role="form" method="post" action="/blog/manage/articles/save">
                         <div class="form-group">
                             <label for="articleTitle">标题</label>
-                            <input type="text" class="form-control"  value="${(article.articleTitle)!''}"/>
+                            <input type="text" name="articleTitle" class="form-control"  value="${(article.articleTitle)!''}"/>
                         </div>
                         <div class="form-group">
                             <label for="articleDescription">描述</label>
-                            <textarea rows="4" type="text" class="form-control"  value="${(article.articleDescription)!''}">${(article.articleDescription)!''}</textarea>
+                            <textarea rows="4" name="articleDescription" type="text" class="form-control" }">${(article.articleDescription)!''}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="createTime">创建时间</label>
-                            <input type="text" class="form-control"  value="${(article.createTime)!''}"/>
+                            <input name="createTime" type="text" class="form-control" readonly value="${(article.createTime)!''}"/>
                         </div>
                         <div class="form-group">
                             <label for="updateTime">更新时间</label>
-                            <input type="text" class="form-control"  value="${(article.updateTime)!''}"/>
+                            <input name="updateTime" type="text" class="form-control" readonly value="${(article.updateTime)!''}"/>
                         </div>
                         <div class="form-group">
                             <label>类目</label>
@@ -41,7 +41,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="articleContent">正文</label><textarea rows="20" type="text" class="form-control"  value="${(article.articleContent)!''}">${(article.articleContent)!''}</textarea>
+                            <label for="articleContent">正文</label>
+                            <textarea rows="20" name="articleContent" type="text" class="form-control"}">${(article.articleContent)!''}</textarea>
                         </div>
                         <input hidden type="text" name="articleId" value="${(article.articleId)!''}">
                         <#--<div class="form-group">-->

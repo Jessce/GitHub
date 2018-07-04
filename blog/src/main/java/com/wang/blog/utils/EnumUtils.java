@@ -5,7 +5,7 @@ import com.wang.blog.enums.CodeEnum;
 /**
  * @ Author     ：泽非
  * @ Date       ：Created in 23:06 2018/7/1
- * @ Description：
+ * @ Description：根据code值返回传入的枚举中对应的枚举
  * @ Modified By：
  */
 public class EnumUtils {

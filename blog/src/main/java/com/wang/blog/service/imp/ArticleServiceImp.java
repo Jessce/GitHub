@@ -66,4 +66,9 @@ public class ArticleServiceImp implements ArticleService{
         article.setArticleStatus(ArticleStatusEnum.DOWN.getCode());
         return articleRepository.save(article);
     }
+
+    @Override
+    public Article save(Article article) {
+        return articleRepository.save(article);
+    }
 }

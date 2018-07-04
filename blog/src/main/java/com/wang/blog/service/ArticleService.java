@@ -31,6 +31,6 @@ public interface ArticleService {
     Article offLine(Integer articleId);
 
 //    创建/更新一篇文章
-
+    Article save(Article article);
 
 }

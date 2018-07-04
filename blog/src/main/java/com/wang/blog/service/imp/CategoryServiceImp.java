@@ -33,4 +33,16 @@ public class CategoryServiceImp implements CategoryService {
     public Category findByType(Integer categoryType) {
         return categoryRepository.findByCategoryType(categoryType);
     }
+
+//    新添方法，方法简单，未做单元测试
+    @Override
+    public Category findOne(Integer categoryId) {
+        return categoryRepository.findById(categoryId).get();
+    }
+
+//    新添方法，方法简单，未做单元测试
+    @Override
+    public Category save(Category category) {
+        return categoryRepository.save(category);
+    }
 }

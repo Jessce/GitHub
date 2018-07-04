@@ -12,7 +12,6 @@ import lombok.Getter;
 public enum ArticleStatusEnum implements CodeEnum{
     DOWN(0,"未发布"),
     UP(1,"已发布"),
-    DRAFT(3,"草稿"),
     ;
 
     private Integer code;
