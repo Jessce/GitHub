@@ -24,9 +24,13 @@ public interface ArticleService {
 //    查询所有发布的文章
     List<Article> findUpAll();
 
-//    删除或者取消发布某篇文章
+//    发布某篇文章
+    Article onLine(Integer articleId);
 
-//    创建一篇文章
+//    下线一篇文章
+    Article offLine(Integer articleId);
+
+//    创建/更新一篇文章
 
 
 }

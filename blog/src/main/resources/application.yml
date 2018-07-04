@@ -10,3 +10,4 @@ spring:
 server:
   servlet:
     context-path: /blog
+  port: 8081

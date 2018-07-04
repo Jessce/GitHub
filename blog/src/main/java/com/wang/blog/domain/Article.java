@@ -57,5 +57,4 @@ public class Article {
     public ArticleStatusEnum getArticleStatusEnum(){
         return EnumUtils.getByCode(articleStatus,ArticleStatusEnum.class);
     }
-
 }
