@@ -37,6 +37,11 @@ public class ClientArticlesController {
     @Autowired
     CategoryServiceImp categoryServiceImp;
 
+    /**
+     * create by: 泽非
+     * description:所有发布文章展示列表
+     * create time: 10:22 2018/7/5
+     */
     @GetMapping("/list")
     public ResultVO findUpAllArticles(){
 //        1.查询所有发布的文章
@@ -70,6 +75,11 @@ public class ClientArticlesController {
         return ResultVOUtils.success(categoryVOList);
     }
 
+    /**
+     * create by: 泽非
+     * description:查看某篇文章内容详情
+     * create time: 10:23 2018/7/5
+     */
     @GetMapping("/article")
     public ResultVO findOneArticle(@RequestParam(value = "ArticleId",defaultValue = "1") Integer articleId){
 //        查询id对应的文章

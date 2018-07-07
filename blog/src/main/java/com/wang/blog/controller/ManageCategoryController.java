@@ -1,7 +1,6 @@
 package com.wang.blog.controller;
 
 import com.wang.blog.domain.Category;
-import com.wang.blog.exception.ArticleException;
 import com.wang.blog.form.CategoryForm;
 import com.wang.blog.service.CategoryService;
 import org.springframework.beans.BeanUtils;

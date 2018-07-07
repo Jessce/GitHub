@@ -52,7 +52,7 @@ public class ManageArticlesController {
 
     /**
      * create by: 泽非
-     * description:文章发布
+     * description:发布文章接口，实现功能的同时，根据结果跳转到一个成功/错误的公用界面
      * create time: 15:57 2018/7/3
      */
     @GetMapping("/on_line")
@@ -71,7 +71,7 @@ public class ManageArticlesController {
 
     /**
      * create by: 泽非
-     * description:取消文章发布
+     * description:取消文章发布接口
      * create time: 15:57 2018/7/3
      */
     @GetMapping("/off_line")
@@ -88,6 +88,11 @@ public class ManageArticlesController {
         return new ModelAndView("common/success",map);
     }
 
+    /**
+     * create by: 泽非
+     * description:文章表单展示界面
+     * create time: 10:20 2018/7/5
+     */
     @GetMapping("/index")
     public ModelAndView index(@RequestParam(value = "articleId",required = false) Integer articleId,
                               Map<String,Object> map){

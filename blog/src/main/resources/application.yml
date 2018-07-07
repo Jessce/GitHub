@@ -11,3 +11,6 @@ server:
   servlet:
     context-path: /blog
   port: 8081
+
+project-url:
+  blog:
