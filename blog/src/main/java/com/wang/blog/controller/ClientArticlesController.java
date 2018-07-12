@@ -12,10 +12,7 @@ import com.wang.blog.utils.ResultVOUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +39,7 @@ public class ClientArticlesController {
      * description:所有发布文章展示列表
      * create time: 10:22 2018/7/5
      */
+    @CrossOrigin
     @GetMapping("/list")
     public ResultVO findUpAllArticles(){
 //        1.查询所有发布的文章
@@ -80,6 +78,7 @@ public class ClientArticlesController {
      * description:查看某篇文章内容详情
      * create time: 10:23 2018/7/5
      */
+    @CrossOrigin
     @GetMapping("/article")
     public ResultVO findOneArticle(@RequestParam(value = "ArticleId",defaultValue = "1") Integer articleId){
 //        查询id对应的文章
