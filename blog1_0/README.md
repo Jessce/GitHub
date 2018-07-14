@@ -2,6 +2,9 @@
 
 > A test Vue.js project for project-blog
 
+## Description
+> it is the font-end user interface. including header footer icon postList and a slider.
+ 
 ## Build Setup
 
 ``` bash
